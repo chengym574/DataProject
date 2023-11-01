@@ -1,5 +1,6 @@
 class Trainer < ApplicationRecord
     has_and_belongs_to_many :pokemons
+    has_one :regions
 
     validates :name, :gender, :age, presence: true
     validates :gender, inclusion: { in: ["Male", "Female"] }
