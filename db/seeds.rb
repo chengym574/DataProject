@@ -35,13 +35,6 @@ CSV.foreach(file, headers: true) do |row|
     )
   end
   
-used_locations = []
-
-25.times do
-  unique_location = nil
-  while unique_location.nil? || used_locations.include?(unique_location)
-    unique_location = Faker::Games::Pokemon.location
+  25.times do
+    Region.create(location: Faker::Games::Pokemon.location)
   end
-  Region.create(location: unique_location)
-  used_locations << unique_location
-end
