@@ -4,6 +4,6 @@ class TrainersController < ApplicationController
     end
 
     def show
-        @trainer = Trainer.find(params[:id])
+        @trainer = Trainer.includes(:region, :pokemons).find(params[:id])
     end
 end

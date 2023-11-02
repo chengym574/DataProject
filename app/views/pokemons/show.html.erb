@@ -1,3 +1,4 @@
+<p><%= link_to 'Back to Pokémon', pokemons_path %></p>
 <h1><%= @pokemon.name %></h1>
 <p>Attack: <%= @pokemon.attack %></p>
 <p>Hp: <%= @pokemon.hp %></p>
@@ -10,3 +11,10 @@
 <% else %>
   <p>Type: <%= @pokemon.type_one %></p>
 <% end %>
+
+<h2>Trainers Who Own a <%= @pokemon.name %>:</h2>
+<ul>
+  <% @pokemon.trainers.each do |trainer| %>
+    <li><%= link_to trainer.name, trainer_path(trainer) %></li>
+  <% end %>
+</ul>

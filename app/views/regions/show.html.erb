@@ -1,1 +1,8 @@
+<p><%= link_to 'Back to Regions', regions_path %></p>
 <h1><%= @region.location %></h1>
+<h2>Trainers from this region:</h2>
+<ul>
+  <% @region.trainers.each do |trainer| %>
+    <li><%= link_to trainer.name, trainer_path(trainer) %></li>
+  <% end %>
+</ul>

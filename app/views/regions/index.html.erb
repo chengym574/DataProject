@@ -1,4 +1,6 @@
 <h1>List of Regions</h1>
+<p><%= link_to 'Pokémon', pokemons_path %></p>
+<p><%= link_to 'Trainers', trainers_path %></p>
 <ul>
   <% @regions.each do |region| %>
     <li><%= link_to region.location, region_path(region) %></li>

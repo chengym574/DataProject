@@ -1,4 +1,6 @@
 <h1>List of Pokemons</h1>
+<p><%= link_to 'Trainers', trainers_path %></p>
+<p><%= link_to 'Regions', regions_path %></p>
 <ul>
   <% @pokemons.each do |pokemon| %>
     <li><%= link_to pokemon.name, pokemon_path(pokemon) %></li>

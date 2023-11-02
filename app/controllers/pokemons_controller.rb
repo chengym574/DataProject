@@ -4,6 +4,6 @@ class PokemonsController < ApplicationController
     end
 
     def show
-        @pokemon = Pokemon.find(params[:id])
+        @pokemon = Pokemon.includes(:trainers).find(params[:id])
     end
 end
