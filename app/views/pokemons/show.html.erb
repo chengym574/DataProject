@@ -1,0 +1,12 @@
+<h1><%= @pokemon.name %></h1>
+<p>Attack: <%= @pokemon.attack %></p>
+<p>Hp: <%= @pokemon.hp %></p>
+<p>Defense: <%= @pokemon.defense %></p>
+<p>Sp_attack: <%= @pokemon.sp_attack %></p>
+<p>Sp_defense: <%= @pokemon.sp_defense %></p>
+<p>Speed: <%= @pokemon.speed %></p>
+<% if @pokemon.type_two.present? %>
+  <p>Type: <%= @pokemon.type_one %> / <%= @pokemon.type_two %></p>
+<% else %>
+  <p>Type: <%= @pokemon.type_one %></p>
+<% end %>
