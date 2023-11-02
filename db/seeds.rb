@@ -27,14 +27,15 @@ CSV.foreach(file, headers: true) do |row|
     Pokemon.create(pokemon_data)
   end
 
+  25.times do
+    Region.create(location: Faker::Games::Pokemon.location)
+  end
+
   50.times do
-    Trainer.create(
+    region = Region.all.sample
+    region.trainers.create(
       name: Faker::Name.name,
       gender: Faker::Gender.binary_type,
       age: Faker::Number.between(from: 16, to: 65)
     )
-  end
-  
-  25.times do
-    Region.create(location: Faker::Games::Pokemon.location)
   end
