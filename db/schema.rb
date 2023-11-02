@@ -42,8 +42,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_01_201110) do
     t.string "name"
     t.string "gender"
     t.integer "age"
+    t.integer "region_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["region_id"], name: "index_trainers_on_region_id"
   end
 
+  add_foreign_key "trainers", "regions"
 end
