@@ -31,11 +31,26 @@ CSV.foreach(file, headers: true) do |row|
     Region.create(location: Faker::Games::Pokemon.location)
   end
 
-  50.times do
+  starter_pokemon = [
+  'Bulbasaur', 'Charmander', 'Squirtle', 
+  'Chikorita', 'Cyndaquil', 'Totodile',
+  'Treecko', 'Torchic', 'Mudkip', 
+  'Turtwig', 'Chimchar', 'Piplup',
+  'Snivy', 'Tepig', 'Oshawott', 
+  'Chespin', 'Fennekin', 'Froakie',
+  'Rowlet', 'Litten', 'Popplio'
+  ]
+
+  200.times do
     region = Region.all.sample
-    region.trainers.create(
+    trainer = region.trainers.create(
       name: Faker::Name.name,
       gender: Faker::Gender.binary_type,
       age: Faker::Number.between(from: 16, to: 65)
     )
+
+    starter = starter_pokemon.sample
+
+    pokemon = Pokemon.find_by(name: starter)
+    trainer.pokemons << pokemon
   end
