@@ -1,6 +1,10 @@
 class TrainersController < ApplicationController
     def index
-      @trainers = Trainer.page(params[:page]).per(50)
+      if params[:search].present?
+        @trainers = Trainer.where("name LIKE ?", "%#{params[:search]}%").page(params[:page]).per(54)
+      else
+        @trainers = Trainer.page(params[:page]).per(54)
+      end
     end
 
     def show
