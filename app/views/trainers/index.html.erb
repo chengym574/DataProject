@@ -6,3 +6,6 @@
     <li><%= link_to trainer.name, trainer_path(trainer) %></li>
   <% end %>
 </ul>
+<div class="pagination">
+  <%= paginate @trainers %>
+</div>

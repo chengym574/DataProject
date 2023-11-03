@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     get 'page/:page', action: :index, on: :collection
   end
 
-  resources :trainers, only: [:index, :show]
+  resources :trainers, only: [:index, :show] do
+    get 'page/:page', action: :index, on: :collection
+  end
 
   resources :regions, only: [:index, :show]
 end
