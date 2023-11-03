@@ -6,3 +6,6 @@
     <li><%= link_to pokemon.name, pokemon_path(pokemon) %></li>
   <% end %>
 </ul>
+<div class="pagination">
+  <%= paginate @pokemons %>
+</div>
