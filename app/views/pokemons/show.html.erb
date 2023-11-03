@@ -1,20 +1,48 @@
-<p><%= link_to 'Back to Pokémon', pokemons_path %></p>
-<h1><%= @pokemon.name %></h1>
-<p>Attack: <%= @pokemon.attack %></p>
-<p>Hp: <%= @pokemon.hp %></p>
-<p>Defense: <%= @pokemon.defense %></p>
-<p>Sp_attack: <%= @pokemon.sp_attack %></p>
-<p>Sp_defense: <%= @pokemon.sp_defense %></p>
-<p>Speed: <%= @pokemon.speed %></p>
-<% if @pokemon.type_two.present? %>
-  <p>Type: <%= @pokemon.type_one %> / <%= @pokemon.type_two %></p>
-<% else %>
-  <p>Type: <%= @pokemon.type_one %></p>
-<% end %>
+<!DOCTYPE html>
+<html>
 
-<h2>Trainers Who Own a <%= @pokemon.name %>:</h2>
-<ul>
-  <% @pokemon.trainers.each do |trainer| %>
-    <li><%= link_to trainer.name, trainer_path(trainer) %></li>
-  <% end %>
-</ul>
+<head>
+  <title>Pokémon Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+
+<body class="bg-gray-400">
+  <div class="container mx-auto p-4">
+    <%= link_to 'Back to Pokémon', pokemons_path, class: "text-blue-700 hover:underline" %>
+    <h1 class="text-3xl font-semibold my-12 text-center"><%= @pokemon.name %></h1>
+    <div class="flex justify-center space-x-4">
+      <div class="w-1/2 bg-white p-4 rounded-lg text-center">
+        <h2 class="text-lg font-semibold mb-2">Stats</h2>
+        <p><strong>Attack:</strong> <%= @pokemon.attack %></p>
+        <p><strong>HP:</strong> <%= @pokemon.hp %></p>
+        <p><strong>Defense:</strong> <%= @pokemon.defense %></p>
+        <p><strong>Special Attack:</strong> <%= @pokemon.sp_attack %></p>
+        <p><strong>Special Defense:</strong> <%= @pokemon.sp_defense %></p>
+        <p><strong>Speed:</strong> <%= @pokemon.speed %></p>
+        <p><strong>Type:</strong>
+          <% if @pokemon.type_two.present? %>
+            <%= @pokemon.type_one %> / <%= @pokemon.type_two %>
+          <% else %>
+            <%= @pokemon.type_one %>
+          <% end %>
+        </p>
+      </div>
+      <div class="w-1/2">
+        <h2 class="text-xl font-semibold mb-2 text-center">Trainers Who Own a <%= @pokemon.name %>:</h2>
+        <div class="flex flex-wrap justify-center">
+          <% @pokemon.trainers.each do |trainer| %>
+            <div class="w-1/3 p-2">
+              <p class="text-blue-700 hover:underline text-center"><%= link_to trainer.name, trainer_path(trainer) %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

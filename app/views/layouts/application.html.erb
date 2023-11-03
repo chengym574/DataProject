@@ -2,25 +2,24 @@
 <html>
   <head>
     <title>DataProject</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <nav class="bg-blue-500 p-4">
+    <nav class="bg-gray-900 p-4">
       <div class="container mx-auto flex justify-between items-center">
-        <a class="text-white text-2xl" href="/">Your App Name</a>
+        <a class="text-white text-2xl font-bold" href="/">Pokemon World</a>
         <ul class="flex space-x-4">
-          <li><a class="text-white" href="/">Home</a></li>
-          <li><a class="text-white" href="/about">About</a></li>
+          <li><a class="text-white hover:bg-gray-700 hover:text-gray-400 rounded-full p-2" href="/">Home</a></li>
+          <li><a class="text-white hover:bg-gray-700 hover:text-gray-400 rounded-full p-2" href="/about">About</a></li>
         </ul>
       </div>
     </nav>
-    <div class="container mx-auto">
+    <div class="container mx-auto p-4">
       <%= yield %>
     </div>
   </body>

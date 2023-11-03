@@ -1,11 +1,41 @@
-<p><%= link_to 'Back to Trainers', trainers_path %></p>
-<h1><%= @trainer.name %></h1>
-<p>Age: <%= @trainer.age %></p>
-<p>Gender: <%= @trainer.gender %></p>
-<p>Region: <%= link_to @trainer.region.location, region_path(@trainer.region) %></p>
-<h2>Owned Pokémon:</h2>
-<ul>
-  <% @trainer.pokemons.each do |pokemon| %>
-    <li><%= link_to pokemon.name, pokemon_path(pokemon) %></li>
-  <% end %>
-</ul>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Trainer Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+
+<body class="bg-gray-400">
+  <div class="container mx-auto p-4">
+    <%= link_to 'Back to Trainers', trainers_path, class: "text-blue-700 hover:underline" %>
+    <h1 class="text-3xl font-semibold my-12 text-center"><%= @trainer.name %></h1>
+    <div class="flex justify-center space-x-4">
+      <div class="w-1/2 bg-white p-4 rounded-lg text-center">
+        <h2 class="text-lg font-semibold mb-2">Details</h2>
+        <p><strong>Age:</strong> <%= @trainer.age %></p>
+        <p><strong>Gender:</strong> <%= @trainer.gender %></p>
+      </div>
+      <div class="w-1/2">
+        <h2 class="text-xl font-semibold mb-2 text-center">Owned Pokémon:</h2>
+        <div class="flex flex-wrap justify-center">
+          <% @trainer.pokemons.each do |pokemon| %>
+            <div class="w-1/3 p-2">
+              <p class="text-blue-700 hover:underline text-center"><%= link_to pokemon.name, pokemon_path(pokemon) %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fixed bottom-0 left-0 w-full p-4 text-center bg-gray-900">
+    <h2 class="text-white text-xl font-semibold mb-2">Visit <%= @trainer.name.split(' ').first %>'s Home Town</h2>
+    <p><%= link_to @trainer.region.location, region_path(@trainer.region), class: "text-white hover:bg-gray-700 hover:text-gray-400 rounded-full p-2" %></p>
+  </div>
+</body>
+
+</html>

@@ -1,6 +1,30 @@
-<h1>Welcome to the world of Pokémon</h1>
-<ul>
-  <li><%= link_to 'Pokémon', pokemons_path %></li>
-  <li><%= link_to 'Trainers', trainers_path %></li>
-  <li><%= link_to 'Regions', regions_path %></li>
-</ul>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DataProject</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-gray-400">
+    <div class="container mx-auto p-4">
+      <div class="text-center">
+        <h1 class="text-white text-3xl font-semibold mb-4">Welcome to the world of Pokémon</h1>
+      </div>
+      <div class="flex justify-center space-x-4 mt-36">
+        <ul class="bg-white w-48 h-48 rounded-lg p-4 flex flex-col justify-center items-center hover:bg-gray-300 hover:shadow-md transition duration-300">
+          <li><%= link_to 'Pokémon', pokemons_path, class: "text-blue-700 hover:underline" %></li>
+        </ul>
+        <ul class="bg-white w-48 h-48 rounded-lg p-4 flex flex-col justify-center items-center hover:bg-gray-300 hover:shadow-md transition duration-300">
+          <li><%= link_to 'Trainers', trainers_path, class: "text-blue-700 hover:underline" %></li>
+        </ul>
+        <ul class="bg-white w-48 h-48 rounded-lg p-4 flex flex-col justify-center items-center hover:bg-gray-300 hover:shadow-md transition duration-300">
+          <li><%= link_to 'Regions', regions_path, class: "text-blue-700 hover:underline" %></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

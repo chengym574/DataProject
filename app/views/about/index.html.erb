@@ -1,2 +1,27 @@
-<h1>About#about</h1>
-<p>Find me in app/views/about/about.html.erb</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About Our Pokémon World</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-gray-400">
+    <div class="container mx-auto p-4">
+      <div class="text-center">
+        <h1 class="text-white text-3xl font-semibold mb-4">About Us</h1>
+      </div>
+      <div class="flex justify-center space-x-4 mt-12"> 
+        <p class="text-white">
+          The data being used will consist of Pokémon’s from a csv file as well as trainers and regions generated from the faker gem. 
+          Pokémon names and basic stats (attack, hp, etc.) will be utilized from the csv file. 
+          The faker generated trainers can own several Pokémon, and Pokémon can be owned by several trainers. 
+          The faker generated regions can be the hometown to many trainers, but a trainer can only come from one region.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
